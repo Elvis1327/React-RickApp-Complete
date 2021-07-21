@@ -1,0 +1,68 @@
+
+
+.header{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: $dark;
+}
+.h1-header{
+    color: white;
+    font-family: 'poppins', sans-serif;
+    font-size: 35px;
+    text-decoration: none;
+    &:hover{
+        color: white;
+    }
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+
+// LI
+.nav-link{
+    padding: 0px;
+}
+
+// BOTONES
+.links{
+    color: white;
+    text-decoration: none;
+    font-family: 'poppins', sans-serif;
+    &:hover{
+        color: white;
+    }
+};
+// SIGN UP
+.linkss{
+    color: white;
+    font-family: 'poppins', sans-serif;
+    &:hover{
+        color: black;
+    }
+}
+
+// RESPONSIVE
+
+@media screen and (max-width: 599px){
+
+    .header{
+        padding: 20px 10px;
+        max-width: 100%;
+    }
+
+    .h1-header{
+        font-size: 20px;
+    }
+}
+
+
+

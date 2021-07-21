@@ -1,0 +1,14 @@
+$dark: #212529;
+$blue-mat: #3F51B5;
+$red-mat: #F44336;
+
+@import './components/navbar';
+@import './components/login';
+@import './components/register';
+@import './components/loader';
+@import './components/rick-search';
+@import './components/rick-search-card';
+@import './components/dropdown.scss';
+@import './components/screen';
+
+

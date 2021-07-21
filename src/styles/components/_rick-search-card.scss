@@ -1,0 +1,137 @@
+
+// ALL CARDS
+._cards-cards{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+// CARD
+._cards-card{
+    width: 603px;
+    height: 231px ;
+    max-width: 100%;
+    background-color: #3C3E44;
+    border-radius: 20px;
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+}
+
+// CONTENEDOR DERECHA
+._cards-card-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
+    padding: 13.5px;
+}
+
+._cards-card-info h1{
+    font-family: 'poppins', sans-serif;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 2px;
+}
+
+// IMGAGEN
+
+._cards-image{
+    width: 231px;
+    max-width: 100%;
+}
+
+.flotado__status{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.flotado__status span{
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+// LOCATIONS
+.last__location-span{
+    font-family: sans-serif;
+    font-weight: 400;
+    color: #ccc;
+}
+
+.last__location-hover{
+    color: white;
+    font-size: 22px;
+    transition: color 300ms;
+    cursor: pointer;
+    margin-bottom: 2px;
+    &:hover{
+        color: #F29800;
+    }
+}
+
+.alerta-noperson{
+    width: 603px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'poppins', sans-serif;
+}
+
+
+.first-seen-span{
+    font-family: 'sans-serif';
+    font-weight: 400;
+    font-size: 20px;
+    color: #ccc;
+}
+
+.first-seen-p{
+    color: white;
+    font-size: 22px;
+    transition: all 300ms;
+    cursor: pointer;
+    margin-bottom: 2px;
+    &:hover{
+        color: #F29800;
+    }
+}
+
+
+// OPCIONES DE VIVO O MUERTO
+._cards-alive{
+    width: 10px;
+    height: 10px;
+    background: #55CC44;
+    border-radius: 100%
+}
+._cards-dead{
+    width: 10px;
+    height: 10px;
+    background: #D63D2E;
+    border-radius: 100%
+}
+// FIN DEL VIVO O MUERTO
+
+
+@media screen and (max-width: 599px){
+    ._cards-cards{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // padding: 20px 0px;
+        row-gap: 20px;
+    }
+    ._cards-card{
+        display: flex;
+        flex-direction: column;
+        width: 330px;
+        height: 650px;
+    }
+    ._cards-image{
+        width: 100%;
+    }
+}
