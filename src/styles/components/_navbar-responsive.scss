@@ -1,0 +1,49 @@
+
+.header-responsive{
+    display: none;
+}
+
+@media screen and (max-width: 599px){
+    .header-responsive{
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 20px;
+        background-color: $dark;
+    }
+    .responsive__menu-button{
+        font-size: 25px;
+        color: white;
+    }
+    .responsive__android{
+        color: white;
+        font-size: 25px;
+    }
+    .responsive__menu{
+        background-color: $dark;
+    }
+    .responsive_ul{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+    .responsive_li{
+        padding: 10px;
+        border-top: 1px black;
+
+        &:first-child{
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+    }
+    .responsive__links{
+        color: white;
+        text-decoration: none;
+        font-family: 'poppins', sans-serif;
+    }
+
+}
+
+

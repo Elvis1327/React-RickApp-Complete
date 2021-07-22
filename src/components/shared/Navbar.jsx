@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutAcount } from '../../actions/auth';
+import OutsideClickHandler from 'react-outside-click-handler';
+import { NavbarResponsive } from './NavbarResponsive';
 
 
 export const Navbar = () =>{
@@ -17,6 +19,7 @@ export const Navbar = () =>{
     return (
 
         <main>
+            <NavbarResponsive />
             {(check === false)
                 ?
                 (<header className="header">
@@ -38,6 +41,7 @@ export const Navbar = () =>{
             </header>)
             :
             (<header className="header">
+                <NavbarResponsive />
                 <h1 className="h1-header">Bienvenido: <strong>{user.name}</strong></h1>
 
                 <nav className="navbar segundo-navbar">
@@ -54,6 +58,11 @@ export const Navbar = () =>{
                         </li>
                     </ul>
                     {/* DROPDOWN */}
+            <OutsideClickHandler
+                onOutsideClick={()=> {
+                    setDropDown(false)
+            }}
+            >
                     <div className="dropdown" onClick={() => setDropDown(!dropdown)}>
                         <i className="fas fa-caret-down barra"></i>
                         {dropdown &&
@@ -67,7 +76,7 @@ export const Navbar = () =>{
                                         <Button 
                                             variant="contained" 
                                             color="secondary" 
-                                            clasName="boton-logout"
+                                            className="boton-logout"
                                             onClick={handleLogount}>
                                             Logout
                                         </Button>
@@ -76,13 +85,15 @@ export const Navbar = () =>{
                             </div>
                         }
                     </div>
+            </OutsideClickHandler>
+            {/* FIN DEL DROPDOWN */}
                 </nav>
             </header>)
             }
         </main>
+        
     )
 }
-
 
 
 
