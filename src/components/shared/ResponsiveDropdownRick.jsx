@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
+import { Button } from '@material-ui/core'
+import { logoutAcount } from '../../actions/auth'
+import { useDispatch } from 'react-redux'
 
 export const ResponsiveDropdownRick = ({botonResponsive, setBotonResponsive}) => {
+    const dispatch = useDispatch()
+
+
+    const handleLogount = () => {
+        dispatch(logoutAcount());
+    };
+
     return (
         <div>
             {botonResponsive &&
@@ -22,6 +32,14 @@ export const ResponsiveDropdownRick = ({botonResponsive, setBotonResponsive}) =>
                             onClick={() => setBotonResponsive(false)}
                             >Search
                         </Link>
+                    </li>
+                    <li className="responsive_li">
+                        <Button
+                            variant="contained" 
+                            color="secondary"
+                            onClick={handleLogount}>
+                            Logout
+                        </Button>
                     </li>
                 </ul>
             </div>

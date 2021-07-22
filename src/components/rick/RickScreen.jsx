@@ -17,7 +17,7 @@ export const RickScreen = () => {
     }
 
     return (
-        <div className="_main-screen-container">
+        <div className="_main-screen-container animate__animated animate__fadeIn">
             <div className="_screen-cards">
                 {data.map(person$ => (
                     <div key={person$.id} className="_screen-card">
