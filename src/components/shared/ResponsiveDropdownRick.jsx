@@ -20,7 +20,7 @@ export const ResponsiveDropdownRick = ({botonResponsive, setBotonResponsive}) =>
                 <ul className="responsive_ul">
                     <li className="responsive_li">
                         <Link
-                            to="/rick-screen" 
+                            to="/rick/screen" 
                             className="responsive__links"
                             onClick={() => setBotonResponsive(false)}
                             >Users
@@ -28,7 +28,7 @@ export const ResponsiveDropdownRick = ({botonResponsive, setBotonResponsive}) =>
                     </li>
                     <li className="responsive_li">
                         <Link 
-                            to="/rick-search" 
+                            to="/rick/search" 
                             className="responsive__links"
                             onClick={() => setBotonResponsive(false)}
                             >Search

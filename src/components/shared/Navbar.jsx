@@ -48,12 +48,12 @@ export const Navbar = () =>{
                     <ul className="nav-links">
                         <li className="nav-link">
                             <Button  variant="contained" color="primary">
-                                <Link to="/register" className="links">Search</Link>
+                                <Link to="/rick/search" className="links">Search</Link>
                             </Button>
                         </li>
                         <li className="nav-link">
                             <Button variant="contained" color="primary">
-                                <Link to="/rick-screen" className="links">Users</Link>
+                                <Link to="/rick/screen" className="links">Users</Link>
                             </Button>
                         </li>
                     </ul>

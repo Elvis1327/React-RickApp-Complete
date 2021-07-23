@@ -5,11 +5,12 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { validarToken } from '../actions/auth';
 import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
-import { RickScreen } from '../components/rick/RickScreen';
-import { RickSearch } from '../components/rick/RickSearch';
+// import { RickScreen } from '../components/rick/RickScreen';
+// import { RickSearch } from '../components/rick/RickSearch';
 import { Navbar } from '../components/shared/Navbar';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
+import { RickRouter } from './RickRouter';
 
 
 export const AppRouter = () => {
@@ -41,17 +42,16 @@ export const AppRouter = () => {
                         />
 
                     <PrivateRoute
-                        exact
-                        path="/rick-search" 
-                        component={RickSearch} 
+                        path="/rick" 
+                        component={RickRouter} 
                         isAuthenticated={check}
                         />
                     
-                    <Route
+                    {/* <Route
                         exact
                         path="/rick-screen"
                         component={RickScreen}
-                    />
+                    /> */}
 
 
                     <Redirect to="/login" />
