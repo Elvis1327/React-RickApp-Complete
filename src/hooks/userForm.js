@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-export const useForm = (initialState) => {
+export const useForm = (initialState, validateForm) => {
     const [ valuesForm, setValuesLogin ] = useState(initialState);
+    const [ errors, setErrors ] = useState({})
     
     const handleInputChange = (e) => {
         setValuesLogin({
@@ -12,7 +13,12 @@ export const useForm = (initialState) => {
     const resetForm = () => {
         setValuesLogin(initialState);
     };
-    return { valuesForm, handleInputChange, resetForm};
+
+    const onBlurErrors = () => {
+        setErrors(validateForm(valuesForm))
+    }
+
+    return { valuesForm, handleInputChange, resetForm, onBlurErrors, errors };
 };
 
 

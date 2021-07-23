@@ -1,5 +1,14 @@
 
 
+// ERRORS FORM
+._form-errors{
+    color: brown;
+    font-family: 'poppins', sans-serif;
+    margin-bottom: 0px;
+}
+// FIN ERRO FORM
+
+
 .main-container{
     width: 100%;
     height: 89vh;
@@ -15,7 +24,6 @@
     height: 350px auto;
     padding: 20px;
     margin-top: 50px;
-    text-align: center;
     background: white;
     border-radius: 20px;
 }
@@ -26,6 +34,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 20px 0px;
+
 }
 
 .inputs label{
@@ -50,6 +59,7 @@
     padding: 5px;
     border-radius: 5%;
     margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .login-acount{

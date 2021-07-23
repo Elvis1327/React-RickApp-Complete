@@ -3,23 +3,32 @@ import { useForm } from '../../hooks/userForm';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginAuth } from '../../actions/auth';
+import validator from 'validator';
 
 export const Login = () => {
     const dispatch = useDispatch();
 
-
-    const { handleInputChange,  valuesForm } = useForm({
+    const validateForm = (valuesForm) => {
+        const errors = {password: '', email: ''};
+        if(valuesForm.password.length < 6){
+            errors.password = 'El campo debe de tener 6 o mas caracteres'
+        }if(!validator.isEmail(valuesForm.email)){
+            errors.email = 'debe contener caracteres parecidos a un email'
+        }
+        return errors;
+    }
+    const { handleInputChange, valuesForm, onBlurErrors, errors } = useForm({
         email: 'test1@gmail.com',
         password: '123456'
-    });
+    }, validateForm);
     const { email, password } = valuesForm;
 
     const handleLogin = (e) => {
         e.preventDefault();
 
         dispatch(loginAuth(email, password))
+    };
 
-    }
 
     return (
         <div className="main-container">
@@ -37,8 +46,10 @@ export const Login = () => {
                             name="email"
                             onChange={handleInputChange}
                             value={email}
+                            onBlur={onBlurErrors}
                         />
                     </div>
+                    {errors?.email && <p className="_form-errors">{errors.email}</p>}
                     <div className="inputs">
                         <label>Password</label>
                         <input 
@@ -49,7 +60,9 @@ export const Login = () => {
                             name="password"
                             onChange={handleInputChange}
                             value={password}
+                            onBlur={onBlurErrors}
                         />
+                    {errors?.password && <p className="_form-errors">{errors.password}</p>}
                     </div>
                     <button
                         type="submit"

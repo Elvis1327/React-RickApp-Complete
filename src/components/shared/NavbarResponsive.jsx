@@ -29,10 +29,10 @@ export const NavbarResponsive = () => {
         <div>
             <header className="header-responsive">
                 <div className="responsive_icon-menu" onClick={() => setBotonResponsive(!botonResponsive)}>
-                    <i class="fas fa-bars responsive__menu-button"></i>
+                    <i className="fas fa-bars responsive__menu-button"></i>
                 </div>
                 <div className="responsive_icon">
-                    <i class="fab fa-android responsive__android"></i>
+                    <i className="fab fa-android responsive__android"></i>
                 </div>
             </header>
         <ResponsiveDropdownRick 

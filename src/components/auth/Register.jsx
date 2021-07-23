@@ -3,24 +3,36 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { registerAuth } from '../../actions/auth';
 import { useForm } from '../../hooks/userForm';
+import validator from 'validator';
 
 
 export const Register = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
+    const validateForm = (valuesForm) => {
+        let error = {name: '', email: '', password: ''};
+        if(valuesForm.name.length < 5){
+            error.name = 'El nombre debe de tener 5 o mas caracteres';
+        }
+        if(!validator.isEmail(valuesForm.email)){
+            error.email = 'debe contener caracteres parecidos a un email';
+        }
+        if(valuesForm.password.length < 6){
+            error.password = 'El campo debe de tener 6 o mas caracteres';
+        }
+        return error;
+    }
     
-    const { handleInputChange, valuesForm } = useForm({
+    const { handleInputChange, valuesForm, onBlurErrors, errors } = useForm({
         name: 'rochy',
         email: 'test2@gmail.com',
         password: '123456'
-    });
+    }, validateForm);
     const { name, email, password } = valuesForm;
     
-
     const handleSubmit = (e) => {
         e.preventDefault();
-
         dispatch(registerAuth(name, email, password))
-
     }
 
     return (
@@ -39,8 +51,10 @@ export const Register = () => {
                             name="name"
                             value={name}
                             onChange={handleInputChange}
+                            onBlur={onBlurErrors}
                         />
                     </div>
+                    {errors?.name && <p className="_form-errors">{errors.name}</p>}
                     <div className="inputs">
                         <label>Email</label>
                         <input 
@@ -51,7 +65,9 @@ export const Register = () => {
                             name="email"
                             value={email}
                             onChange={handleInputChange}
+                            onBlur={onBlurErrors}
                         />
+                        {errors?.email && <p className="_form-errors">{errors.email}</p>}
                     </div>
                     <div className="inputs">
                         <label>Password</label>
@@ -63,8 +79,10 @@ export const Register = () => {
                             name="password"
                             value={password}
                             onChange={handleInputChange}
+                            onBlur={onBlurErrors}
                         />
                     </div>
+                    {errors?.password && <p className="_form-errors">{errors.password}</p>}
                     <button
                         type="submit"
                         className="boton-login"

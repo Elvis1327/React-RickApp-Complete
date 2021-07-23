@@ -1,19 +1,22 @@
 import { authLogin, authRegister, authValidarToken } from "../helpers/fetchAuth";
 import { TYPES } from "../types/types"
-
+import Swal from 'sweetalert2';
 
 export const loginAuth = (email, password) => {
     return async (dispatch) => {
-        const info = await authLogin(email, password);
 
-        if(info.ok === true){
-            localStorage.setItem('x-token', info.token)
-        };
-        dispatch(login({
-            name: info.name,
-            email: info.email
-        }))
-    }
+            const info = await authLogin(email, password);
+            console.log(info)
+            if(info.ok === true){
+                localStorage.setItem('x-token', info.token)
+                dispatch(login({
+                    name: info.name,
+                    email: info.email
+                }));
+            }else{
+                Swal.fire('error', info.msg, 'error')
+            }
+        }
 };
 const login = (user) => {
     return {

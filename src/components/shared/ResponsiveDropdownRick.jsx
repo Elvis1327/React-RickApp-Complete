@@ -10,6 +10,7 @@ export const ResponsiveDropdownRick = ({botonResponsive, setBotonResponsive}) =>
 
     const handleLogount = () => {
         dispatch(logoutAcount());
+        setBotonResponsive(false);
     };
 
     return (
