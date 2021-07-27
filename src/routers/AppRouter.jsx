@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import { validarToken } from '../actions/auth';
 import { Login } from '../components/auth/Login';
 import { Register } from '../components/auth/Register';
