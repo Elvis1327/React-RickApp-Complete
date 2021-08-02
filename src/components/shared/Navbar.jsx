@@ -41,7 +41,6 @@ export const Navbar = () =>{
             </header>)
             :
             (<header className="header">
-                <NavbarResponsive />
                 <h1 className="h1-header">Bienvenido: <strong>{user.name}</strong></h1>
 
                 <nav className="navbar segundo-navbar">
