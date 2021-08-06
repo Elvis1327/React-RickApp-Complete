@@ -5,7 +5,6 @@ import { getDataAsync } from '../../actions/rick';
 export const RickScreen = () => {
     const { data, loading } = useSelector((data) => data.rick)
     const dispatch = useDispatch();
-    console.log(data)
 
 
     useEffect(()=>{

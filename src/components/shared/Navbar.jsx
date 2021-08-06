@@ -72,13 +72,13 @@ export const Navbar = () =>{
                                         <h1> {user.name} </h1>
                                     </div>
                                     <div className="boton-logout-container">
-                                        <Button 
+                                        <button 
                                             variant="contained" 
                                             color="secondary" 
                                             className="boton-logout"
                                             onClick={handleLogount}>
                                             Logout
-                                        </Button>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

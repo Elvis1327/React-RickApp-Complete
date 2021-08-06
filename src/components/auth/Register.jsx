@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { registerAuth } from '../../actions/auth';
 import { useForm } from '../../hooks/userForm';
@@ -8,6 +8,8 @@ import validator from 'validator';
 
 export const Register = () => {
     const dispatch = useDispatch();
+    const { checkSpinerForm } = useSelector(state => state.formSpiner);
+
 
     const validateForm = (valuesForm) => {
         let error = {name: '', email: '', password: ''};
@@ -83,12 +85,19 @@ export const Register = () => {
                         />
                     </div>
                     {errors?.password && <p className="_form-errors">{errors.password}</p>}
+                    {(checkSpinerForm === true)
+                    ?
+                    (<div className="_form-spiner">
+                        <div className="_form-loader"></div>
+                    </div>)
+                    :
                     <button
                         type="submit"
                         className="boton-login"
                     >
                         Register
                     </button>
+                    }
                 </form>
                 <span className="register-acount">Ya tienes cuenta? <Link to="/login"> Inicia Seccion</Link> </span>
             </div>

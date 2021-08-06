@@ -1,0 +1,36 @@
+
+
+// BOTON SPINER LOGIN
+._form-spiner{
+    width: 100%;
+    padding: 5px;
+    height: 30px;
+    background-color: #3F51B5;
+    border-radius: 5%;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    position: relative;
+}
+
+._form-loader{
+    border: 2px solid #ccc;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border-left-color: red;
+    animation: spin 1s linear infinite;
+    position: absolute;
+
+    left: 50%;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    };
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+

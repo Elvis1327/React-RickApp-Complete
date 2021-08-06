@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm } from '../../hooks/userForm';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginAuth } from '../../actions/auth';
 import validator from 'validator';
 
 export const Login = () => {
     const dispatch = useDispatch();
+    const { checkSpinerForm } = useSelector(state => state.formSpiner);
 
     const validateForm = (valuesForm) => {
         const errors = {password: '', email: ''};
@@ -39,7 +40,7 @@ export const Login = () => {
                     <div className="inputs">
                         <label>Email</label>
                         <input 
-                            type="text" 
+                            type="email" 
                             placeholder="Put your Email"
                             className="input"
                             autoComplete="none"
@@ -53,7 +54,7 @@ export const Login = () => {
                     <div className="inputs">
                         <label>Password</label>
                         <input 
-                            type="text" 
+                            type="password" 
                             placeholder="Put your Password"
                             className="input"
                             autoComplete="none"
@@ -64,12 +65,18 @@ export const Login = () => {
                         />
                     {errors?.password && <p className="_form-errors">{errors.password}</p>}
                     </div>
-                    <button
+                    {(checkSpinerForm === true) 
+                        ? (<div className="_form-spiner">
+                            <div className="_form-loader"></div>
+                        </div>)
+                        : 
+                        (<button
                         type="submit"
                         className="boton-login"
-                    >
-                        Login
-                    </button>
+                        >
+                            Login
+                        </button>)
+                    }
                 </form>
                 <span className="login-acount">
                     Aun no tienes cuenta? 
