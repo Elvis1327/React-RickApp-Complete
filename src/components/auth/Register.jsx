@@ -26,9 +26,9 @@ export const Register = () => {
     }
     
     const { handleInputChange, valuesForm, onBlurErrors, errors } = useForm({
-        name: 'rochy',
-        email: 'test2@gmail.com',
-        password: '123456'
+        name: '',
+        email: '',
+        password: ''
     }, validateForm);
     const { name, email, password } = valuesForm;
     
@@ -51,7 +51,6 @@ export const Register = () => {
                             className="input"
                             autoComplete="none"
                             name="name"
-                            value={name}
                             onChange={handleInputChange}
                             onBlur={onBlurErrors}
                         />
@@ -65,7 +64,6 @@ export const Register = () => {
                             className="input"
                             autoComplete="none"
                             name="email"
-                            value={email}
                             onChange={handleInputChange}
                             onBlur={onBlurErrors}
                         />
@@ -79,7 +77,6 @@ export const Register = () => {
                             className="input"
                             autoComplete="off"
                             name="password"
-                            value={password}
                             onChange={handleInputChange}
                             onBlur={onBlurErrors}
                         />

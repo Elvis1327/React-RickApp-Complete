@@ -19,8 +19,8 @@ export const Login = () => {
         return errors;
     }
     const { handleInputChange, valuesForm, onBlurErrors, errors } = useForm({
-        email: 'test1@gmail.com',
-        password: '123456'
+        email: '',
+        password: ''
     }, validateForm);
     const { email, password } = valuesForm;
 
@@ -46,7 +46,6 @@ export const Login = () => {
                             autoComplete="none"
                             name="email"
                             onChange={handleInputChange}
-                            value={email}
                             onBlur={onBlurErrors}
                         />
                     </div>
@@ -60,7 +59,6 @@ export const Login = () => {
                             autoComplete="none"
                             name="password"
                             onChange={handleInputChange}
-                            value={password}
                             onBlur={onBlurErrors}
                         />
                     {errors?.password && <p className="_form-errors">{errors.password}</p>}
