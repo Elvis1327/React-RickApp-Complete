@@ -35,7 +35,7 @@ export const RickCards = ({dataSearch}) => {
                     </div>
             ))}
             {dataSearch.length === 0 &&
-                <div class="alert alert-danger alerta-noperson" role="alert">
+                <div className="alert alert-danger alerta-noperson" role="alert">
                     No hay personajes con este nombre
                 </div>
 

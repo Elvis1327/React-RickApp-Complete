@@ -10,11 +10,10 @@ export const Register = () => {
     const dispatch = useDispatch();
     const { checkSpinerForm } = useSelector(state => state.formSpiner);
 
-
     const validateForm = (valuesForm) => {
-        let error = {name: '', email: '', password: ''};
-        if(valuesForm.name.length < 5){
-            error.name = 'El nombre debe de tener 5 o mas caracteres';
+        let error = {nombre: '', email: '', password: ''};
+        if(valuesForm.nombre.length < 5){
+            error.nombre = 'El nombre debe de tener 5 o mas caracteres';
         }
         if(!validator.isEmail(valuesForm.email)){
             error.email = 'debe contener caracteres parecidos a un email';
@@ -26,15 +25,15 @@ export const Register = () => {
     }
     
     const { handleInputChange, valuesForm, onBlurErrors, errors } = useForm({
-        name: '',
+        nombre: '',
         email: '',
         password: ''
     }, validateForm);
-    const { name, email, password } = valuesForm;
+    const { nombre, email, password } = valuesForm;
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(registerAuth(name, email, password))
+        dispatch(registerAuth(nombre, email, password))
     }
 
     return (
@@ -47,15 +46,15 @@ export const Register = () => {
                         <label>Name</label>
                         <input 
                             type="text" 
-                            placeholder="Put your Email"
+                            placeholder="Put your Name"
                             className="input"
                             autoComplete="none"
-                            name="name"
+                            name="nombre"
                             onChange={handleInputChange}
                             onBlur={onBlurErrors}
                         />
                     </div>
-                    {errors?.name && <p className="_form-errors">{errors.name}</p>}
+                    {errors?.nombre && <p className="_form-errors">{errors.nombre}</p>}
                     <div className="inputs">
                         <label>Email</label>
                         <input 

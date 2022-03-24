@@ -12,7 +12,7 @@ const requests = [
 
 export const fetchRick = async () => {
     const dataAleatory = requests[
-        Math.floor(Math.random() * requests.length + 1)
+        Math.floor(Math.random() * requests.length)
     ];
     const {data} = await axios.get(dataAleatory);
     return data;

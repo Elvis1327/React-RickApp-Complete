@@ -5,7 +5,7 @@ import { fetchRick } from '../helpers/fetchRick';
 
 export const getDataAsync = () => {
     return async (dispatch) => {
-        const {results} = await  fetchRick()
+        const {results} = await fetchRick();
         dispatch(getData(results))
     }
 }

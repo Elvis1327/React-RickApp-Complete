@@ -33,11 +33,11 @@ const login = (user) => {
     };
 };
 
-export const registerAuth = (name, email, password) => {
+export const registerAuth = (nombre, email, password) => {
     return async (dispatch) => {
         try {
-            dispatch(loginSpinnerTrue())
-            const resp = await authRegister(name, email, password);
+            dispatch(loginSpinnerTrue());
+            const resp = await authRegister(nombre, email, password);
             const bodyRegister = { name: resp.name, email: resp.email }
             if(resp.ok === true){
                 localStorage.setItem('x-token', resp.token)
