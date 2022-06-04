@@ -1,14 +1,15 @@
 
-// ALL CARDS
+// All cards
 ._cards-cards{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    animation: testing 1s 1 linear;
 }
 
-// CARD
+// Card
 ._cards-card{
     width: 603px;
     height: 231px ;
@@ -20,7 +21,7 @@
     overflow: hidden;
 }
 
-// CONTENEDOR DERECHA
+// Right container
 ._cards-card-info{
     display: flex;
     flex-direction: column;
@@ -36,13 +37,13 @@
     margin-bottom: 2px;
 }
 
-// IMGAGEN
-
+// Img
 ._cards-image{
     width: 231px;
     max-width: 100%;
 }
 
+// Floating
 .flotado__status{
     display: flex;
     align-items: center;
@@ -53,6 +54,20 @@
     font-family: sans-serif;
     font-weight: bold;
     color: white;
+}
+
+// Alive or dead
+._cards-alive{
+    width: 10px;
+    height: 10px;
+    background: #55CC44;
+    border-radius: 100%
+}
+._cards-dead{
+    width: 10px;
+    height: 10px;
+    background: #D63D2E;
+    border-radius: 100%
 }
 
 // LOCATIONS
@@ -99,23 +114,16 @@
     }
 }
 
-
-// OPCIONES DE VIVO O MUERTO
-._cards-alive{
-    width: 10px;
-    height: 10px;
-    background: #55CC44;
-    border-radius: 100%
+@keyframes testing {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
-._cards-dead{
-    width: 10px;
-    height: 10px;
-    background: #D63D2E;
-    border-radius: 100%
-}
-// FIN DEL VIVO O MUERTO
 
-
+// Responsive
 @media screen and (max-width: 599px){
     ._cards-cards{
         width: 100%;
