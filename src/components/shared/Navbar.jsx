@@ -15,8 +15,8 @@ export const Navbar = () =>{
                     <nav className="navbar">
                         <ul className="nav-links">
                             <li className="nav-link">
-                                <Button color="primary">
-                                    <Link to="/" className="linkss">Users</Link>
+                                <Button variant="contained" color="primary">
+                                    <Link to="/" className="links">Users</Link>
                                 </Button>
                             </li>
                             <li className="nav-link">
