@@ -1,33 +1,21 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getDataAsync } from '../../actions/rick';
+import React, { useState, useContext } from 'react';
+
 import { RickCards } from './RickCards';
+import { RickContext } from '../../context/rick-context';
+import { getUserByName } from '../../utils/fetchRick';
 
 export const RickSearch = () => {
-    const dispatch = useDispatch();
-    const { loading, data } = useSelector(state => state.rick);
-    const [ inputState, setInputState ] = useState('')
 
-    useEffect(() => {
-        dispatch(getDataAsync())
-    },[dispatch]);
+    const [ inputState, setInputState ] = useState('');
+    const { rickData, isRickDataLoading } = useContext(RickContext);
+    
+    const personsSearch = getUserByName(inputState, rickData);
 
-    const filterData = (name) => {
-        const info = data.filter(resp => resp.name.toLowerCase().includes(name.toLowerCase()))
-        if(name.length === 0){
-            return data;
-        }else{
-            return info
-        }
-    }
-    const personsSearch = filterData(inputState);
-
-    if(loading === true){
+    if(isRickDataLoading === true){
         return <div  className="loader"></div>
     }
     return (
-        <div className="_search-main-container">
+        <section className="_search-main-container">
             <div className="_search__main-container">
                 <input 
                     type="text" 
@@ -40,6 +28,6 @@ export const RickSearch = () => {
             <div className="component_cards">
                 <RickCards dataSearch={personsSearch} />
             </div>
-        </div>
+        </section>
     )
 }

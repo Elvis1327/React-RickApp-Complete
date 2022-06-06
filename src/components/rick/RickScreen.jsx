@@ -1,37 +1,37 @@
-import React, {useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getDataAsync } from '../../actions/rick';
+import React, { useContext } from 'react';
+
+import { RickContext } from '../../context/rick-context';
+
 
 export const RickScreen = () => {
-    const { data, loading } = useSelector((data) => data.rick)
-    const dispatch = useDispatch();
 
+    const { rickData, isRickDataLoading } = useContext(RickContext);
 
-    useEffect(()=>{
-        dispatch(getDataAsync())
-    },[dispatch])
-
-    if(loading === true){
+    if(isRickDataLoading === true){
         return <div className="loader"></div>
     }
 
     return (
         <section className="_main-screen-container">
             <article className="_screen-cards">
-                {data.map(person$ => (
+                {rickData.map(person$ => (
                     <article key={person$.id} className="_screen-card">
                         <img src={person$.image} alt="pic"/>
+
                         <div className="_screen-card-info">
+
                             <div className="screen_h1-status">
                                 <h1 className="screen-h1"> {person$.name} </h1>
-                                {/* FLOTADO STATUS */}
+                                {/* STATUS */}
                                 <article className="flotado__status">
                                     <div 
                                         className={`${person$.status === 'Alive' ? '_cards-alive' : '_cards-dead'}`}>
                                     </div>
                                     <span>{person$.status} - { person$.species } </span>
                                 </article>
+
                             </div>
+                            
                             <div className="screen_last-seen">
                                 <span>Last known location:</span>
                                 <p>{person$.location.name}</p>
@@ -40,7 +40,9 @@ export const RickScreen = () => {
                                 <span>Origin</span>
                                 <p>{person$.origin.name}</p>
                             </div>
+
                         </div>
+
                     </article>
                 ))}
             </article>
