@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import { RickContext } from "./rick-context"
 import { fetchRick } from '../utils/fetchRick';
 
-
-
 export const RickProvider = ({ children }) => {
 
     const [ rickData, setRickData ] = useState([]);

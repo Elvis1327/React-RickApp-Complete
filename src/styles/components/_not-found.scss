@@ -1,0 +1,26 @@
+
+
+._not-found-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+._not-found-container img{
+    width: 400px;
+    max-width: 100%;
+}
+
+._button-not-found{
+    outline: none;
+    border: none;
+    font-size: 20px;
+    background-color: #D9E7F5;
+    padding: 15px 60px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
